@@ -27,4 +27,3 @@ kampus-etkinlik/
     ├── .gitignore
     └── README.md
 
-https://kampus-etkinlikleri-xi.vercel.app/
