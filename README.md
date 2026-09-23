@@ -26,3 +26,5 @@ kampus-etkinlik/
     ├── etkinlik-guncelle.html
     ├── .gitignore
     └── README.md
+
+https://kampus-etkinlikleri-xi.vercel.app/
