@@ -26,3 +26,8 @@ kampus-etkinlik/
     ├── etkinlik-guncelle.html
     ├── .gitignore
     └── README.md
+
+
+
+## Canlı URL
+[Kampüs Etkinlikleri canlı site](https://kampus-etkinlikleri-xi.vercel.app/)
