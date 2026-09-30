@@ -19,15 +19,12 @@ Bu sprintte yalnızca HTML kullanılmıştır.
 
 ```text
 kampus-etkinlik/
-└── sprint1/
-    ├── index.html
-    ├── etkinlik-detay.html
-    ├── etkinlik-ekle.html
-    ├── etkinlik-guncelle.html
-    ├── .gitignore
-    └── README.md
-
-
-
-## Canlı URL
-[Kampüs Etkinlikleri canlı site](https://kampus-etkinlikleri-xi.vercel.app/)
+├── css/
+├── sprint1/
+│   ├── index.html
+│   ├── etkinlik-detay.html
+│   ├── etkinlik-ekle.html
+│   └── etkinlik-guncelle.html
+├── .gitignore
+└── README.md
+```
