@@ -1,0 +1,135 @@
+/* Alperen Ekici 2321032033 */
+:root {
+    --no: 2321032033;
+    --ton: mod(var(--no), 360);
+    --renk-ana: hsl(var(--ton) 65% 38%);
+    --renk-zemin: hsl(var(--ton) 30% 97%);
+    --font: "Trebuchet MS", sans-serif;
+    --bosluk-m: 1rem; 
+    --kose: 8px;
+}
+
+body { 
+    font-family: var(--font); 
+    background-color: var(--renk-zemin);
+    margin: 0;
+    padding: var(--bosluk-m);
+}
+
+header h1 {
+    color: var(--renk-ana);
+    margin-top: 0;
+}
+
+/* Menü Tasarımı: Telefonda sığması için flex kullanıldı */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bosluk-m);
+    margin-bottom: calc(var(--bosluk-m) * 2);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--renk-ana);
+    font-weight: bold;
+}
+
+/* Grid Yapıları: Öncelik Telefon (Tek Sütun) */
+.etkinlik-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--bosluk-m);
+}
+
+/* Geniş ekran için (Masaüstü) */
+@media (min-width: 768px) {
+    .index-grid {
+        grid-template-columns: 1fr 1fr; /* Ana sayfa: 2 sütun */
+    }
+    .tum-etkinlikler-grid {
+        grid-template-columns: 1fr 1fr 1fr; /* Etkinlikler: 3 sütun */
+    }
+    .detay-grid {
+        grid-template-columns: 1fr 1fr; /* Afiş ve künye yan yana */
+    }
+}
+
+/* Kart Tasarımı */
+article.kart {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: var(--bosluk-m);
+    border-radius: var(--kose);
+}
+
+article.kart h3 {
+    margin-top: 0;
+    color: var(--renk-ana);
+}
+
+article.kart a {
+    text-decoration: none;
+    color: var(--renk-ana);
+    font-weight: bold;
+    display: inline-block;
+    margin-top: var(--bosluk-m);
+}
+
+/* Görsellerin telefonda taşmasını engeller */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--kose);
+}
+
+dl {
+    background: #fff;
+    padding: var(--bosluk-m);
+    border-radius: var(--kose);
+    margin: 0;
+}
+
+dt {
+    font-weight: bold;
+    color: var(--renk-ana);
+    margin-top: calc(var(--bosluk-m) / 2);
+}
+
+dd {
+    margin-left: 0;
+    margin-bottom: var(--bosluk-m);
+}
+
+/* Form Tasarımı */
+label {
+    display: block;
+    font-weight: bold;
+    color: var(--renk-ana);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: var(--bosluk-m);
+    box-sizing: border-box; /* Telefonda taşmayı engeller */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+button {
+    background-color: var(--renk-ana);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Hatalı (boş bırakılan zorunlu) form alanlarının kırmızı olması */
+input:invalid, select:invalid, textarea:invalid {
+    border: 2px solid red;
+}
