@@ -1,4 +1,4 @@
-﻿https://kampus-etkinlikleri-xi.vercel.app/
+﻿[http://sprint4-nu.vercel.app/](http://sprint4-nu.vercel.app/)
 
 # Kampüs Etkinlikleri — Sprint 4 (Vite, TypeScript ve React)
 
