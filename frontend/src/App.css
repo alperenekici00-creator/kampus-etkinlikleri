@@ -1,0 +1,135 @@
+/* Alperen Ekici 2321032033 */
+:root {
+  --no: 2321032033;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --renk-etiket: hsl(var(--ton) 50% 90%);
+  --font: "Trebuchet MS", sans-serif;
+  --bosluk-m: 1rem;
+  --kose: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--font);
+  background-color: var(--renk-zemin);
+  color: #222;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.site-baslik {
+  background-color: var(--renk-ana);
+  color: #fff;
+  padding: 1.5rem 2rem;
+}
+
+.site-baslik h1 { color: #fff; margin: 0 0 0.4rem 0; font-size: 1.8rem; }
+.site-baslik p { margin: 0 0 1rem 0; opacity: 0.92; }
+
+nav.menu { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+nav.menu a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+}
+nav.menu a[aria-current="page"] { background-color: #fff; color: var(--renk-ana); }
+
+main { max-width: 980px; margin: 0 auto; padding: 2rem 1.25rem; }
+main h2 { margin-top: 0; color: #1a1a1a; }
+
+.etkinlik-listesi { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+@media (min-width: 768px) {
+  .etkinlik-listesi { grid-template-columns: 1fr 1fr; }
+  .detay { grid-template-columns: 1.2fr 1fr; }
+}
+
+article.kart {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: 4px solid var(--renk-ana);
+  padding: 1.25rem;
+  border-radius: var(--kose);
+}
+article.kart h2 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.25rem; color: #1a1a1a; }
+.kategori-rozet {
+  display: inline-block;
+  background-color: var(--renk-etiket);
+  color: var(--renk-ana);
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+article.kart p { margin: 0.35rem 0; }
+article.kart a {
+  text-decoration: underline;
+  color: var(--renk-ana);
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 0.75rem;
+  cursor: pointer;
+}
+
+.filtre-panel {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--kose);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) { .filtre-panel { grid-template-columns: 2fr 1fr; } }
+.filtre-panel p { margin: 0; }
+.filtre-panel input, .filtre-panel select { margin-bottom: 0; }
+.sonuc-bilgi { font-weight: bold; color: var(--renk-ana); margin: 0.75rem 0 1rem 0; }
+
+.detay { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
+.detay figure { margin: 0 0 1.25rem 0; }
+.detay figcaption { font-style: italic; color: #666; font-size: 0.9rem; margin-top: 0.4rem; }
+img { max-width: 100%; height: auto; border-radius: var(--kose); display: block; }
+
+.kunye-kutu { background: #fff; border: 1px solid #e0e0e0; padding: 1.25rem; border-radius: var(--kose); }
+.kunye-kutu h2 { margin-top: 0; font-size: 1.2rem; }
+dl { margin: 0; display: grid; grid-template-columns: 100px 1fr; row-gap: 0.6rem; }
+dt { font-weight: bold; color: #333; }
+dd { margin: 0; color: #444; }
+.detay-aksiyonlar { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+
+button {
+  background-color: var(--renk-ana);
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.form { max-width: 560px; }
+.form-not { color: #555; margin-top: 0; margin-bottom: 1.25rem; }
+label { display: block; font-weight: bold; color: #222; margin-bottom: 0.25rem; }
+input, select, textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.hata-kutusu { background: #fff; border-left: 4px solid #d9534f; padding: 1.25rem; border-radius: var(--kose); }
+footer { text-align: center; color: #666; font-size: 0.9rem; border-top: 1px solid #ddd; padding: 1.5rem; margin-top: 3rem; }

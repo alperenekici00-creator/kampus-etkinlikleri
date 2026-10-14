@@ -1,33 +1,17 @@
-# Kampüs Etkinlikleri
+﻿https://kampus-etkinlikleri-xi.vercel.app/
 
-Bu proje Sprint 1 ve Sprint 2 kapsamında hazırlanmıştır.
+# Kampüs Etkinlikleri — Sprint 4 (Vite, TypeScript ve React)
 
-## Proje
+## Dosya ve Klasör Görevleri (Adım 2)
 
-Kampüs etkinliklerinin listelendiği ve etkinlik bilgilerinin görüntülendiği duyarlı (responsive) bir web projesidir. 
-Sprint 1'de temel HTML iskeleti kurulmuş, Sprint 2'de ise CSS kullanılarak mobil öncelikli (mobile-first) tasarım, ızgara (grid) sistemi ve form doğrulama özellikleri eklenmiştir.
-
-Vercel Canlı Linki: https://kampus-etkinlikleri-xi.vercel.app/
-
-## Sayfalar
-
-- Ana Sayfa (`index.html`)
-- Tüm Etkinlikler (`etkinlikler.html`)
-- Etkinlik Detay (`etkinlik-detay.html`)
-- Etkinlik Ekle (`etkinlik-ekle.html`)
-- Etkinlik Güncelle (`etkinlik-guncelle.html`)
-
-## Klasör Yapısı
-
-```text
-kampus-etkinlik/
-├── sprint2/
-│   ├── css/
-│   │   └── 2321032033.css
-│   ├── index.html
-│   ├── etkinlikler.html
-│   ├── etkinlik-detay.html
-│   ├── etkinlik-ekle.html
-│   └── etkinlik-guncelle.html
-├── .gitignore
-└── README.md
+- **package.json**: Proje adı, komutlar (`dev`, `build`) ve paket listesini tutar.
+- **package-lock.json**: Yüklenen paketlerin tam sürümlerini kilitler.
+- **node_modules/**: İndirilen paketlerin bulunduğu klasördür; GitHub'a gitmez.
+- **tsconfig*.json**: TypeScript derleyici ayarlarını içerir.
+- **vite.config.ts**: Vite ayarları ve React eklentisini barındırır.
+- **index.html**: Tek HTML dosyasıdır; içinde boş `div#root` bulunur.
+- **src/main.tsx**: React'i başlatır ve `App` bileşenini `root` içine çizer.
+- **src/App.tsx**: Uygulamanın 5 sayfasını ve state yönetimini içeren ana bileşendir.
+- **src/App.css**: `App` bileşeninin stillerini içerir (Sprint 3 CSS'i buraya taşındı).
+- **src/index.css**: Tüm sayfaya genel stil verir; bu sprintte boş bırakılmıştır.
+- **public/**: Olduğu gibi kopyalanan statik dosyaları (`afis.svg`, `favicon.svg`) tutar.
