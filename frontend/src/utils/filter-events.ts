@@ -4,9 +4,7 @@ export function searchEvents(list: CampusEvent[], text: string): CampusEvent[] {
   const q = text.trim().toLocaleLowerCase("tr-TR");
   if (!q) return list;
   return list.filter(
-    (e) =>
-      e.title.toLocaleLowerCase("tr-TR").includes(q) ||
-      e.description.toLocaleLowerCase("tr-TR").includes(q)
+    (e) => e.title.toLocaleLowerCase("tr-TR").includes(q) || e.description.toLocaleLowerCase("tr-TR").includes(q)
   );
 }
 

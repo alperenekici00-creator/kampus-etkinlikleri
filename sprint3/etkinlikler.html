@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tüm Etkinlikler</title>
+    <link rel="stylesheet" href="css/2321032043.css">
+    <script type="module" src="js/event-list.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Tüm Etkinlikler</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a> &middot;
+            <a href="etkinlikler.html">Etkinlikler</a> &middot;
+            <a href="etkinlik-ekle.html">Ekle</a>
+        </nav>
+    </header>
+    <main>
+      <form id="filtre-formu" class="filtre">
+        <label for="arama">Etkinlik ara</label>
+        <input type="search" id="arama" placeholder="Örn. atölye, kariyer">
+        
+        <!-- Kategori yerine A'dan Z'ye Sıralama Butonu -->
+        <span></span>
+        <button type="button" id="sirala-az-btn">A'dan Z'ye Sırala</button>
+    </form>
+        <p id="sonuc"></p>
+
+        <section id="etkinlik-listesi" class="etkinlik-grid uclu"></section>
+    </main>
+    <footer>
+        <p>&copy; Muhammet Gazi Kuruş &middot; 2026</p>
+    </footer>
+</body>
+</html>
