@@ -1,45 +1,34 @@
-import type { CampusEvent } from "../../types/campus-event";
+import { CampusEvent } from "../../types/campus-event";
 import { formatDate } from "../../utils/format-date";
 
-interface EventDetailProps {
+interface Props {
   event: CampusEvent;
-  onBack: () => void;
-  onEdit: (id: string) => void;
 }
 
-export default function EventDetail({ event, onBack, onEdit }: EventDetailProps) {
+export default function EventDetail({ event }: Props) {
   return (
     <article className="detay">
-      <div>
-        {event.image && (
-          <figure>
-            <img src={event.image} alt={`${event.title} afişi`} />
-            <figcaption>{event.title} afişi</figcaption>
-          </figure>
-        )}
-        <h2>Açıklama</h2>
-        <p>{event.description}</p>
-        <div className="detay-aksiyonlar">
-          <button type="button" onClick={onBack}>← Listeye dön</button>
-          <button type="button" onClick={() => onEdit(event.id)}>Bu etkinliği güncelle</button>
+      <dl className="ozellikler">
+        <div className="ozellik">
+          <dt>Kategori:</dt>
+          <dd><span className="etiket">{event.category}</span></dd>
         </div>
-      </div>
-
-      <aside className="kunye-kutu">
-        <h2>Etkinlik Künyesi</h2>
-        <dl>
-          <dt>Tarih</dt>
-          <dd>
-            <time dateTime={event.date}>{formatDate(event.date)}, {event.time}</time>
-          </dd>
-          <dt>Yer</dt>
+        <div className="ozellik">
+          <dt>Tarih & Saat:</dt>
+          <dd>{formatDate(event.date)}, {event.time}</dd>
+        </div>
+        <div className="ozellik">
+          <dt>Yer:</dt>
           <dd>{event.location}</dd>
-          <dt>Kategori</dt>
-          <dd>{event.category}</dd>
-          <dt>Kontenjan</dt>
+        </div>
+        <div className="ozellik">
+          <dt>Kontenjan:</dt>
           <dd>{event.capacity} kişi</dd>
-        </dl>
-      </aside>
+        </div>
+      </dl>
+      <div className="aciklama">
+        <p>{event.description}</p>
+      </div>
     </article>
   );
 }

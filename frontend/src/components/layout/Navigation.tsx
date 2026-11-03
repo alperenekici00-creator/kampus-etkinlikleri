@@ -1,32 +1,22 @@
-import type { PageName } from "../../types/page";
+import { NavLink } from "react-router-dom";
 
-interface NavigationProps {
-  current: PageName;
-  onNavigate: (page: PageName) => void;
-}
+export default function Navigation() {
+  const menu = [
+    { to: "/", label: "Ana Sayfa" },
+    { to: "/events", label: "Etkinlikler" },
+    { to: "/admin", label: "Yönetim" },
+    { to: "/login", label: "Giriş" },
+  ];
 
-const menuItems: { key: PageName; label: string }[] = [
-  { key: "home", label: "Ana Sayfa" },
-  { key: "events", label: "Etkinlikler" },
-  { key: "add", label: "Ekle" },
-];
-
-export default function Navigation({ current, onNavigate }: NavigationProps) {
   return (
-    <nav className="menu" aria-label="Ana menü">
-      {menuItems.map((item) => (
-        <a
-          key={item.key}
-          href={`#${item.key}`}
-          aria-current={current === item.key ? "page" : undefined}
-          onClick={(e) => {
-            e.preventDefault();
-            onNavigate(item.key);
-          }}
-        >
-          {item.label}
-        </a>
-      ))}
+    <nav className="site-nav">
+      <ul>
+        {menu.map(item => (
+          <li key={item.to}>
+            <NavLink to={item.to} end={item.to === "/"}>{item.label}</NavLink>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 }

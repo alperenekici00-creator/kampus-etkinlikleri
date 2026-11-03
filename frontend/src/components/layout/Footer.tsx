@@ -1,7 +1,9 @@
 export default function Footer() {
   return (
-    <footer>
-      <p>Alperen Ekici &middot; 2321032033 &middot; 2026</p>
+    <footer className="site-footer">
+      <div className="container">
+        <p>Alperen Ekici · 2321032033 · 2026</p>
+      </div>
     </footer>
   );
 }

@@ -1,50 +1,39 @@
-import type { Category } from "../../types/campus-event";
+import { Category } from "../../types/campus-event";
 
-interface EventFilterProps {
+interface Props {
   searchText: string;
   onSearchChange: (text: string) => void;
-  category: Category | "";
-  onCategoryChange: (category: Category | "") => void;
+  category: Category | "Tümü";
+  onCategoryChange: (category: Category | "Tümü") => void;
   categories: Category[];
-  resultCount: number;
 }
 
-export default function EventFilter({
-  searchText, onSearchChange, category, onCategoryChange, categories, resultCount
-}: EventFilterProps) {
+export default function EventFilter({ searchText, onSearchChange, category, onCategoryChange, categories }: Props) {
   return (
-    <>
-      <div className="filtre-panel">
-        <p>
-          <label htmlFor="search">Etkinlik ara</label>
-          <input
-            id="search"
-            type="search"
-            placeholder="Örn: atölye, kariyer"
-            value={searchText}
-            onChange={(e) => onSearchChange(e.target.value)}
-          />
-        </p>
-        <p>
-          <label htmlFor="categoryFilter">Kategori</label>
-          <select
-            id="categoryFilter"
-            value={category}
-            onChange={(e) => onCategoryChange(e.target.value as Category | "")}
-          >
-            <option value="">Tümü</option>
-            {categories.map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
-        </p>
+    <div className="filter-bar">
+      <div className="arama-grubu">
+        <label htmlFor="search">Etkinlik ara</label>
+        <input
+          id="search"
+          type="text"
+          placeholder="Örn: atölye, kariyer"
+          value={searchText}
+          onChange={(e) => onSearchChange(e.target.value)}
+        />
       </div>
-
-      <p className="sonuc-bilgi">
-        {resultCount === 0
-          ? "Eşleşen etkinlik bulunamadı."
-          : `${resultCount} etkinlik listeleniyor.`}
-      </p>
-    </>
+      <div className="arama-grubu">
+        <label htmlFor="category">Kategori</label>
+        <select
+          id="category"
+          value={category}
+          onChange={(e) => onCategoryChange(e.target.value as Category | "Tümü")}
+        >
+          <option value="Tümü">Tümü</option>
+          {categories.filter(c => c !== "").map(c => (
+            <option key={c} value={c}>{c}</option>
+          ))}
+        </select>
+      </div>
+    </div>
   );
 }
