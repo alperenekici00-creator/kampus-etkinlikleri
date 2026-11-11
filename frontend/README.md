@@ -2,9 +2,9 @@
 
 Bu proje Sprint 6 (Router, Context, Controlled Form, Yönetim) adımlarına göre tamamlanmıştır.
 
-## Vize Teslim (Örnek)
-Vercel'deki projenizin adresini buraya ekleyin:
-(Örnek: `https://alperenekici-frontend.vercel.app`)
+## Vize Teslim
+Vercel'deki projemin adresi :
+[https://alperenekici-frontend.vercel.app/](https://alperenekici-frontend.vercel.app/)
 
 ## Kurulum
 1. Node modüllerini yükleyin:
