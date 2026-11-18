@@ -1,0 +1,13 @@
+$kind: http-request
+name: POST /events (sadece title)
+url: http://localhost:3000/events
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "title": "Eksik Verili Etkinlik"
+    }
+order: 6000

@@ -1,0 +1,5 @@
+$kind: http-request
+name: GET /events/
+url: http://localhost:3000/events/6afd944f8b351fd50c447044
+method: GET
+order: 3000

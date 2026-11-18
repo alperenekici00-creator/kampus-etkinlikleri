@@ -18,8 +18,15 @@ app.get("/health", (req, res) => {
 
 app.use("/events", eventRoutes);
 
+// 404 Route Not Found
 app.use((req, res) => {
   res.status(404).json({ error: { message: "Route not found" } });
+});
+
+// 500 Error Handler
+app.use((err, req, res, next) => {
+  console.error(err.message);
+  res.status(500).json({ error: { message: "Server error" } });
 });
 
 export default app;
