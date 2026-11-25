@@ -1,0 +1,7 @@
+$kind: collection
+description: "Sprint 9 testleri. Çalıştırmadan önce: npm run seed, npm run dev. Sonra collection'a sağ tık > Run collection > Run."
+variables:
+  baseUrl: http://localhost:3000
+  eventId: ""
+  newId: ""
+  toplam: ""

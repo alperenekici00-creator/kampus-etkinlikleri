@@ -1,0 +1,27 @@
+$kind: http-request
+url: "{{baseUrl}}/events"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Runner Test Etkinliği",
+      "category": "Atölye",
+      "date": "20-12-2026",
+      "capacity": 30,
+      "time": "14:00",
+      "location": "Test Salonu",
+      "description": "Collection Runner ile eklendi."
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("status 201", () => pm.response.to.have.status(201));
+      const e = pm.response.json();
+      pm.test("_id döndü", () => pm.expect(e._id).to.be.a("string"));
+      pm.test("tarih 20-12-2026", () => pm.expect(e.date).to.eql("20-12-2026"));
+      pm.collectionVariables.set("newId", e._id);
+    language: text/javascript
+order: 5000

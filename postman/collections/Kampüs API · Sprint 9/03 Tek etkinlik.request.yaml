@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/events/{{eventId}}"
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("status 200", () => pm.response.to.have.status(200));
+      pm.test("doğru kayıt", () => pm.expect(pm.response.json()._id).to.eql(pm.collectionVariables.get("eventId")));
+    language: text/javascript
+order: 3000

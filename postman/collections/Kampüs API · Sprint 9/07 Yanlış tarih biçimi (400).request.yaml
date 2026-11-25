@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{baseUrl}}/events"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Git Atölyesi",
+      "category": "Atölye",
+      "date": "2026-12-20"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("status 400", () => pm.response.to.have.status(400));
+      pm.test("hata mesajı var", () => pm.expect(pm.response.json().error.message).to.be.a("string"));
+    language: text/javascript
+order: 7000

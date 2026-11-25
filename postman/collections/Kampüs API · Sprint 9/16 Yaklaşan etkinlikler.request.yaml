@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{baseUrl}}/events/upcoming"
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("status 200", () => pm.response.to.have.status(200));
+      const list = pm.response.json();
+      const d = (s) => { const [g, a, y] = s.split("-").map(Number); return Date.UTC(y, a - 1, g); };
+      const n = new Date(); const bugun = Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate());
+      pm.test("geçmiş tarihli yok", () => list.forEach((e) => pm.expect(d(e.date), e.date).to.be.at.least(bugun)));
+      pm.test("en yakın önce", () => list.forEach((e, i) => i && pm.expect(d(e.date)).to.be.at.least(d(list[i - 1].date))));
+      pm.test("seed'deki geçmiş etkinlikler elendi", () => pm.expect(list.length).to.be.below(Number(pm.collectionVariables.get("toplam")) + 1));
+    language: text/javascript
+order: 16000

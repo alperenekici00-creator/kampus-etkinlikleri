@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/events/{{newId}}"
+method: DELETE
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("status 404", () => pm.response.to.have.status(404));
+      pm.test("hata mesajı var", () => pm.expect(pm.response.json().error.message).to.be.a("string"));
+    language: text/javascript
+order: 18000

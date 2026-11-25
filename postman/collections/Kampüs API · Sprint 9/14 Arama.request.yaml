@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/events?search=atölye"
+method: GET
+queryParams:
+  search: atölye
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("status 200", () => pm.response.to.have.status(200));
+      const list = pm.response.json();
+      pm.test("en az 1 sonuç", () => pm.expect(list.length).to.be.at.least(1));
+      pm.test("hepsinin başlığında atölye", () => list.forEach((e) => pm.expect(e.title.toLocaleLowerCase("tr")).to.include("atölye")));
+    language: text/javascript
+order: 14000

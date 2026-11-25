@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{baseUrl}}/events?search=atölye&category=Atölye"
+method: GET
+queryParams:
+  search: atölye
+  category: Atölye
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("status 200", () => pm.response.to.have.status(200));
+      const list = pm.response.json();
+      pm.test("hepsi Atölye kategorisinde", () => list.forEach((e) => pm.expect(e.category).to.eql("Atölye")));
+      pm.test("hepsinin başlığında atölye", () => list.forEach((e) => pm.expect(e.title.toLocaleLowerCase("tr")).to.include("atölye")));
+    language: text/javascript
+order: 15000

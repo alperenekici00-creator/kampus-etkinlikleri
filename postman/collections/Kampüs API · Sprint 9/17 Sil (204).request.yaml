@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/events/{{newId}}"
+method: DELETE
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("status 204", () => pm.response.to.have.status(204));
+      pm.test("gövde boş", () => pm.expect(pm.response.text()).to.eql(""));
+    language: text/javascript
+order: 17000

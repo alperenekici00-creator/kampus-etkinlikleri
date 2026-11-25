@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{baseUrl}}/events/{{newId}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "date": "25-12-2026"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("status 200", () => pm.response.to.have.status(200));
+      pm.test("tarih 25-12-2026", () => pm.expect(pm.response.json().date).to.eql("25-12-2026"));
+    language: text/javascript
+order: 9000
